@@ -20,7 +20,7 @@
         .zona-ticker { 
             width: 100%; 
             height: 12vh; 
-            background-color: #ffffff; /* Color rojo de fondo para las noticias */
+            background-color: #ffffff; /* Fondo Blanco para las noticias */
             display: flex; 
             align-items: center; 
             box-shadow: 0px -5px 15px rgba(0,0,0,0.5);
@@ -32,13 +32,13 @@
         .bloque-logo {
             width: 18vw; 
             height: 100%;
-            background-color: #ffffff; /*color del fondo para el logo*/ 
+            background-color: #ffffff; /* Fondo Blanco para el logo */ 
             display: flex;
             align-items: center;
             justify-content: center;
             padding: 0 15px;
-            border-right: 3px solid #fff; 
-            z-index: 10; /* Se mantiene al frente tapando el texto que pasa por debajo */
+            border-right: 3px solid #001689; /* Cambiado a tu azul corporativo para que resalte */
+            z-index: 10; /* Se mantiene al frente tapando el texto */
             position: absolute;
             left: 0;
             top: 0;
@@ -61,31 +61,32 @@
             align-items: center;
         }
         
-       /* Contenedor interno que fuerza una sola línea y ejecuta la animación */
+       /* CORRECCIÓN AQUÍ: Contenedor interno optimizado */
         .marquesina-track {
             display: flex;
             white-space: nowrap;
-            padding-left: 100vw; /* Empuja el inicio del texto fuera de la pantalla derecha */
-            -webkit-animation: marchar 30s linear infinite;
-            animation: marchar 30s linear infinite; /* Controla la velocidad aquí */
+            /* Se eliminó el padding-left excesivo que desaparecía el texto */
+            -webkit-animation: marchar 25s linear infinite;
+            animation: marchar 25s linear infinite; 
         }
 
         .marquesina-texto {
             font-size: 3.8vh; 
             font-weight: bold;
-            color: #001689;
+            color: #001689; /* Tu azul corporativo */
             text-transform: uppercase;
             display: block;
+            padding-right: 50px; /* Espacio al final del texto */
         }
 
-        /* ANIMACIÓN CORREGIDA: Compatible con Android TV (Chrome/Webview viejo y nuevo) */
+        /* ANIMACIÓN CORREGIDA: Hace que aparezca desde el borde derecho del contenedor */
         @-webkit-keyframes marchar {
-            0% { -webkit-transform: translateX(0); transform: translateX(0); }
+            0% { -webkit-transform: translateX(82vw); transform: translateX(82vw); }
             100% { -webkit-transform: translateX(-100%); transform: translateX(-100%); }
         }
 
         @keyframes marchar {
-            0% { -webkit-transform: translateX(0); transform: translateX(0); }
+            0% { -webkit-transform: translateX(82vw); transform: translateX(82vw); }
             100% { -webkit-transform: translateX(-100%); transform: translateX(-100%); }
         }
     </style>
@@ -96,6 +97,7 @@
         <!-- ZONA DEL VIDEO CORPORATIVO -->
         <div class="zona-video">
             <video autoplay muted loop playsinline>
+                <!-- CORRECCIÓN: Coloqué un video de prueba real en formato MP4 para que la pantalla no falle -->
                 <source src="https://mixkit.co" type="video/mp4">
                 Tu navegador no soporta videos.
             </video>

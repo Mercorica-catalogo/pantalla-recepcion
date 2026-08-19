@@ -97,8 +97,9 @@
     <div class="pantalla-container">
         <!-- ZONA DEL VIDEO CORPORATIVO -->
         <div class="zona-video">
-            <video autoplay muted loop playsinline>
-                <source src="https://mixkit.co" type="video/mp4">
+            <!-- AJUSTE: Se eliminó el atributo "loop" e integró un ID para controlarse con JavaScript -->
+            <video id="reproductorCorporativo" autoplay muted playsinline>
+                <source src="" type="video/mp4">
                 Tu navegador no soporta videos.
             </video>
         </div>
@@ -116,10 +117,47 @@
                 <!-- REQUISITO: El texto largo está escrito DOS veces idénticas seguidas para simular el bucle continuo -->
                 <span class="marquesina-texto">
                    ¡Bienvenidos a las instalaciones de MERCORICA! - Somos distribuidores de productos de consumo masivo, cosméticos y fragancias - Nuestro horario de atención es de Lunes a Viernes de 8:00am a 5:30pm - (506) 2296 5966 - Contamos con una tienda donde puedes conseguir tus productos favoritos - ¡Bienvenidos a las instalaciones de MERCORICA! - Somos distribuidores de productos de consumo masivo, cosméticos y fragancias - Nuestro horario de atención es de Lunes a Viernes de 8:00am a 5:30pm - (506) 2296 5966 - Contamos con una tienda donde puedes conseguir tus productos favoritos 
+                </span>
             </div>
 
         </div>
     </div>
+
+    <!-- SCRIPT DE JAVASCRIPT PARA REPRODUCIR VARIOS VIDEOS EN BUCLE -->
+    <script>
+        // Cambia estas URLs de prueba por los enlaces directos (.mp4) de tus videos corporativos
+        const listaVideos = [
+            "https://mixkit.co",
+            "https://mixkit.co",
+            "https://mixkit.co"
+        ];
+
+        let indiceActual = 0;
+        const videoPlayer = document.getElementById("reproductorCorporativo");
+
+        function reproducirSiguienteVideo() {
+            // Si termina el último video de la lista, regresa al primero (índice 0)
+            if (indiceActual >= listaVideos.length) {
+                indiceActual = 0;
+            }
+            
+            // Asigna la nueva ruta del video y la carga en el reproductor
+            videoPlayer.src = listaVideos[indiceActual];
+            videoPlayer.load();
+            
+            // Ejecuta el video
+            videoPlayer.play().catch(error => console.log("Esperando carga de video: ", error));
+            
+            // Suma uno para que el próximo llamado cargue el siguiente elemento
+            indiceActual++;
+        }
+
+        // Listener: Ejecuta la función automáticamente cada vez que el video en pantalla llegue a su fin
+        videoPlayer.addEventListener("ended", reproducirSiguienteVideo);
+
+        // Inicia el primer video de la lista cuando la página web termina de cargar
+        window.addEventListener("DOMContentLoaded", reproducirSiguienteVideo);
+    </script>
 
 </body>
 </html>

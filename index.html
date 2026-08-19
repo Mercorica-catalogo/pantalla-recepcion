@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ticker Corporativo</title>
+    <style>
+        /* Reseteo básico para pantalla completa */
+        * { box-sizing: border-box; margin: 0; padding: 0; overflow: hidden; }
+        body, html { width: 100%; height: 100%; background-color: #000; font-family: Arial, sans-serif; }
+
+        /* Contenedor principal de la pantalla */
+        .pantalla-container { display: flex; flex-direction: column; width: 100vw; height: 100vh; }
+
+        /* Área superior: Ocupa el 88% de la pantalla para el Video */
+        .zona-video { width: 100%; height: 88vh; background: #000; }
+        video { width: 100%; height: 100%; object-fit: cover; }
+
+        /* Área inferior: Ocupa el 12% de la pantalla para el Ticker (Estilo CNN) */
+        .zona-ticker { 
+            width: 100%; 
+            height: 12vh; 
+            background-color: #cc0000; /* Color rojo corporativo (puedes cambiar el código HEX) */
+            color: #ffffff; 
+            display: flex; 
+            align-items: center; 
+            box-shadow: 0px -5px 15px rgba(0,0,0,0.5);
+            border-top: 4px solid #fff; /* Línea divisoria blanca */
+        }
+
+        /* Contenedor del texto en movimiento */
+        .marquesina-container { width: 100%; overflow: hidden; white-space: nowrap; }
+        
+        .marquesina-texto {
+            display: inline-block;
+            padding-left: 100%;
+            font-size: 4vh; /* Tamaño responsivo según el alto de la pantalla */
+            font-weight: bold;
+            text-transform: uppercase;
+            animation: marchar 25s linear infinite; /* Controla la velocidad aquí (más segundos = más lento) */
+        }
+
+        /* Animación CSS moderna para el desplazamiento fluido */
+        @keyframes marchar {
+            0% { transform: translate3d(0, 0, 0); }
+            100% { transform: translate3d(-100%, 0, 0); }
+        }
+    </style>
+</head>
+<body>
+
+    <div class="pantalla-container">
+        <!-- ZONA DEL VIDEO CORPORATIVO -->
+        <div class="zona-video">
+            <!-- Reemplaza el enlace de abajo por la URL directa de tu video MP4 corporativo -->
+            <video autoplay muted loop playsinline>
+                <source src="https://mixkit.co" type="video/mp4">
+                Tu navegador no soporta videos.
+            </video>
+        </div>
+
+        <!-- ZONA DE LA BARRA DE NOTICIAS -->
+        <div class="zona-ticker">
+            <div class="marquesina-container">
+                <div class="marquesina-texto">
+                    📢 BIENVENIDOS A LA PANTALLA CORPORATIVA — 🚀 RECORDATORIO: Próxima reunión general el viernes a las 10:00 AM — 🌟 ¡Felicitaciones al equipo de ventas por alcanzar la meta mensual! — 🔒 Mantén tus contraseñas seguras y reporta correos sospechosos a TI.
+                </div>
+            </div>
+        </div>
+    </div>
+
+</body>
+</html>

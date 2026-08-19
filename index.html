@@ -73,11 +73,13 @@
         }
 
         .marquesina-texto {
-            font-size: 3.8vh; 
+            font-size: 3.8vh;
             font-weight: bold;
             color: #001689; 
             text-transform: uppercase;
             padding-right: 100vw; /* Añade un espacio gigante al final para que el texto termine de pasar antes de reiniciar */
+            -webkit-animation: marchar 35s linear infinite;
+            animation: marchar 35s linear infinite; /* Si pones un texto MUY largo, sube este valor a 45s o 50s para que vaya más lento */
         }
 
         /* ANIMACIÓN AUTOMÁTICA COMPATIBLE: Se adapta a cualquier longitud de texto */
@@ -113,12 +115,10 @@
 
             <!-- BLOQUE CON MOVIMIENTO: Noticias -->
             <div class="marquesina-container">
-                <div class="marquesina-track">
-                    <!-- Puedes agregar el texto del largo que desees dentro de este span y se adaptará solo -->
+                 <!-- Puedes agregar el texto del largo que desees dentro de este span y se adaptará solo -->
                     <span class="marquesina-texto">
                         📢 BIENVENIDOS A LA PANTALLA CORPORATIVA — 🚀 RECORDATORIO: Próxima reunión general el viernes a las 10:00 AM — 🌟 ¡Felicitaciones al equipo de ventas por alcanzar la meta mensual! — 🔒 Mantén tus contraseñas seguras y reporta correos sospechosos a TI.
                     </span>
-                </div>
             </div>
 
         </div>

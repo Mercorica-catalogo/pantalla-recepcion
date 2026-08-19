@@ -61,31 +61,33 @@
             align-items: center;
         }
 
-        /* CORRECCIÓN: Único elemento de texto sin restricciones */
+        /* CORRECCIÓN: Ajustado para repetición instantánea infinita */
         .marquesina-texto {
             position: absolute;
             white-space: nowrap; /* Fuerza estrictamente una sola línea horizontal continua */
-            width: max-content;  /* Se estira automáticamente al largo total de tu texto */
+            width: max-content;  /* Se estira automáticamente al largo total de tu texto duplicado */
             font-size: 3.8vh;
             font-weight: bold;
             color: #001689; 
             text-transform: uppercase;
-            padding-right: 100vw; /* Espacio para que el texto salga por completo antes de reiniciar */
             
-            /* Una sola llamada a la animación */
-            -webkit-animation: marchar 35s linear infinite;
-            animation: marchar 35s linear infinite; 
+            /* CAMBIO: Se reduce el espacio final a una separación normal entre bloques de texto */
+            padding-right: 150px; 
+            
+            /* Ajustado a 25s ya que el recorrido es más corto al reiniciar al 50% */
+            -webkit-animation: marchar 45s linear infinite;
+            animation: marchar 45s linear infinite; 
         }
 
-        /* ANIMACIÓN CORREGIDA: Se mueve en base al tamaño dinámico real del elemento (max-content) */
+        /* ANIMACIÓN CORREGIDA: Empieza desde el inicio y reinicia exactamente a la mitad (-50%) */
         @-webkit-keyframes marchar {
-            0% { -webkit-transform: translate3d(82vw, 0, 0); transform: translate3d(82vw, 0, 0); }
-            100% { -webkit-transform: translate3d(-100%, 0, 0); transform: translate3d(-100%, 0, 0); }
+            0% { -webkit-transform: translate3d(0, 0, 0); transform: translate3d(0, 0, 0); }
+            100% { -webkit-transform: translate3d(-50%, 0, 0); transform: translate3d(-50%, 0, 0); }
         }
 
         @keyframes marchar {
-            0% { -webkit-transform: translate3d(82vw, 0, 0); transform: translate3d(82vw, 0, 0); }
-            100% { -webkit-transform: translate3d(-100%, 0, 0); transform: translate3d(-100%, 0, 0); }
+            0% { -webkit-transform: translate3d(0, 0, 0); transform: translate3d(0, 0, 0); }
+            100% { -webkit-transform: translate3d(-50%, 0, 0); transform: translate3d(-50%, 0, 0); }
         }
     </style>
 </head>
@@ -95,7 +97,6 @@
         <!-- ZONA DEL VIDEO CORPORATIVO -->
         <div class="zona-video">
             <video autoplay muted loop playsinline>
-                <!-- Recuerda cambiar mixkit.co por el enlace directo de tu video .mp4 cuando lo tengas -->
                 <source src="https://mixkit.co" type="video/mp4">
                 Tu navegador no soporta videos.
             </video>
@@ -111,9 +112,9 @@
 
             <!-- BLOQUE CON MOVIMIENTO: Noticias -->
             <div class="marquesina-container">
-                <!-- Un solo elemento directo como sugeriste, sin contenedores intermedios -->
+                <!-- REQUISITO: El texto largo está escrito DOS veces idénticas seguidas para simular el bucle continuo -->
                 <span class="marquesina-texto">
-                    📢 BIENVENIDOS A LA PANTALLA CORPORATIVA — 🚀 RECORDATORIO: Próxima reunión general el viernes a las 10:00 AM — 🌟 ¡Felicitaciones al equipo de ventas por alcanzar la meta mensual! — 🔒 Mantén tus contraseñas seguras y reporta correos sospechosos a TI.
+                    📢 BIENVENIDOS A LA PANTALLA CORPORATIVA — 🚀 RECORDATORIO: Próxima reunión general el viernes a las 10:00 AM — 🌟 ¡Felicitaciones al equipo de ventas por alcanzar la meta mensual! — 🔒 Mantén tus contraseñas seguras y reporta correos sospechosos a TI. — 📢 BIENVENIDOS A LA PANTALLA CORPORATIVA — 🚀 RECORDATORIO: Próxima reunión general el viernes a las 10:00 AM — 🌟 ¡Felicitaciones al equipo de ventas por alcanzar la meta mensual! — 🔒 Mantén tus contraseñas seguras y reporta correos sospechosos a TI.
                 </span>
             </div>
 

@@ -61,11 +61,13 @@
             align-items: center;
         }
         
-        /* Contenedor interno que fuerza una sola línea y ejecuta la animación */
+       /* Contenedor interno que fuerza una sola línea y ejecuta la animación */
         .marquesina-track {
             display: flex;
             white-space: nowrap;
             padding-left: 100vw; /* Empuja el inicio del texto fuera de la pantalla derecha */
+            -webkit-animation: marchar 30s linear infinite;
+            animation: marchar 30s linear infinite; /* Controla la velocidad aquí */
         }
 
         .marquesina-texto {
@@ -74,8 +76,6 @@
             color: #001689;
             text-transform: uppercase;
             display: block;
-             -webkit-animation: marchar 30s linear infinite;
-            animation: marchar 30s linear infinite; /* Controla la velocidad aquí */
         }
 
         /* ANIMACIÓN CORREGIDA: Compatible con Android TV (Chrome/Webview viejo y nuevo) */
